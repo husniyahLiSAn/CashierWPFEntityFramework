@@ -1,0 +1,167 @@
+﻿<Window x:Class="B32.DashboardAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:B32"
+        mc:Ignorable="d"
+        Height="475" Width="855" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF69F3BB">
+    <Grid Margin="0,0,2,0" RenderTransformOrigin="0.074,0.041">
+        <TabControl x:Name="tabControl" TabStripPlacement="Left" HorizontalContentAlignment="Left" Foreground="AntiqueWhite" Background="#FFB4FBDB">
+            <TabItem Header="Supplier" HorizontalAlignment="Left" Width="110" Margin="-2,-2,0,-2">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FF15B60D" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Margin="0,0,-1,0">
+                    <Label x:Name="lblTitle2" Content="Supplier" HorizontalAlignment="Left" Margin="33,10,0,0" VerticalAlignment="Top" Width="174" Height="64" FontFamily="Sakkal Majalla" FontSize="36"/>
+                    <Label x:Name="labelId" Content="Id" HorizontalAlignment="Left" Margin="32,72,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TxtId" HorizontalAlignment="Left" Height="23" Margin="108,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" IsReadOnly="True" IsEnabled="False"/>
+                    <Label x:Name="labelName" Content="Name" HorizontalAlignment="Left" Margin="33,105,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TxtName" HorizontalAlignment="Left" Height="23" Margin="108,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
+                    <Label x:Name="labelEmail" Content="Email" HorizontalAlignment="Left" Margin="33,136,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TxtEmail" HorizontalAlignment="Left" Height="23" Margin="108,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" PreviewTextInput="TxtEmail_PreviewTextInput"/>
+                    <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Margin="48,181,0,0" VerticalAlignment="Top" Click="btnSubmit_Click" IsEnabled="True" Background="#FF21B21A"/>
+                    <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="134,181,0,0" VerticalAlignment="Top" Click="btnUpdate_Click" IsEnabled="False" Background="#FFE28E16"/>
+                    <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="222,181,0,0" VerticalAlignment="Top" Click="btnDelete_Click" IsEnabled="False" Background="#FFF53333"/>
+                    <DataGrid x:Name="GridSupplier" HorizontalAlignment="Left" Margin="334,40,0,0" VerticalAlignment="Top" Height="323" Width="374" DataContext="{Binding Source=Supplier}"  AutoGenerateColumns="False" CanUserResizeColumns="True" SelectionChanged="GridSupplier_SelectionChanged" Background="#FFC2F0C4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Path=Id}" Width="55"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Width="175"/>
+                            <DataGridTextColumn Header="Email" Binding="{Binding Path=Email}" Width="200"/>
+                            <!--<DataGridTemplateColumn Header="Update">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnUpdate_Click">Update</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnDelete_Click">Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Item" HorizontalAlignment="Left" Width="110" Margin="-2,-2,0,-2">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FF15B60D" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Margin="0,0,-1,0">
+                    <Label x:Name="lblTitle3" Content="Item" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="140" Height="64" FontFamily="Sakkal Majalla" FontSize="36"/>
+                    <Label x:Name="IdItem" Content="Id" HorizontalAlignment="Left" Margin="31,56,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TxtIdItem" HorizontalAlignment="Left" Height="23" Margin="106,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" IsReadOnly="True" IsEnabled="False"/>
+                    <Label x:Name="NameItem" Content="Name" HorizontalAlignment="Left" Margin="31,84,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TxtNameItem" HorizontalAlignment="Left" Height="23" Margin="106,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" PreviewTextInput="TxtNameItem_PreviewTextInput"/>
+                    <Label x:Name="labelStock" Content="Stock" HorizontalAlignment="Left" Margin="31,115,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TxtStock" HorizontalAlignment="Left" Height="23" Margin="106,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" PreviewTextInput="TxtStock_PreviewTextInput"/>
+                    <Label x:Name="labelPrice" Content="Price" HorizontalAlignment="Left" Margin="30,146,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TxtPrice" HorizontalAlignment="Left" Height="23" Margin="106,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" PreviewTextInput="TxtPrice_PreviewTextInput"/>
+                    <Label x:Name="labelSupplier" Content="Supplier" HorizontalAlignment="Left" Margin="30,177,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="btnSubmitItem" Content="Submit" HorizontalAlignment="Left" Margin="34,220,0,0" VerticalAlignment="Top" Click="btnSubmitItem_Click" IsEnabled="True" Background="#FF21B21A"/>
+                    <Button x:Name="btnUpdateItem" Content="Update" HorizontalAlignment="Left" Margin="134,220,0,0" VerticalAlignment="Top" Click="btnUpdateItem_Click" IsEnabled="False" Background="#FFE28E16"/>
+                    <Button x:Name="btnDeleteItem" Content="Delete" HorizontalAlignment="Left" Margin="222,220,0,0" VerticalAlignment="Top" Click="btnDeleteItem_Click" IsEnabled="False" Background="#FFF53333"/>
+                    <DataGrid x:Name="GridItem" HorizontalAlignment="Left" Margin="332,43,0,0" DataContext="{Binding Source=TransactionItem}" VerticalAlignment="Top" Height="325" Width="380"  AutoGenerateColumns="False" CanUserResizeColumns="True" SelectionChanged="GridItem_SelectionChanged" Background="#FFC2F0C4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="45"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="100"/>
+                            <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" Width="75"/>
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="75"/>
+                            <DataGridTextColumn Header="Supplier" Binding="{Binding SupplierFK.Name}" Width="150"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <!--<ComboBox x:Name="comboBoxSupplier" HorizontalAlignment="Left" Margin="30,287,0,0" VerticalAlignment="Top" Width="205" ItemsSource="{Binding Source=list}" DisplayMemberPath="Name" SelectionChanged="comboBoxSupplier_SelectionChanged">-->
+                    <ComboBox x:Name="comboBoxSupplier" Text="--Choose Supplier--" HorizontalAlignment="Left" Margin="106,181,0,0" VerticalAlignment="Top" Width="205" ItemsSource="{Binding Supplier}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="comboBoxSupplier_SelectionChanged" IsEditable="True" IsReadOnly="True">
+                        <!--<ComboBox.SelectedItem>
+                            <ComboBoxItem
+                        </ComboBox.SelectedItem>-->
+                    </ComboBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Transaction" HorizontalAlignment="Left" Width="110" Margin="-2,-2,0,-2">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FF15B60D" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Margin="0,0,-1,0">
+                    <Button x:Name="btnAddTrans" Content="Add Transaction" HorizontalAlignment="Left" Margin="31,22,0,0" VerticalAlignment="Top" Click="btnAddTrans_Click"  Height="28" Background="#FF4FA4EA" IsEnabled="True"/>
+                    <Label x:Name="labelTrans" Content="Id Transaction" HorizontalAlignment="Left" Margin="499,24,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TxtTransId" HorizontalAlignment="Left" Height="26" Margin="616,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" IsEnabled="False"/>
+                    <Label x:Name="labelIdTrans" Visibility="Hidden" Content="Id" HorizontalAlignment="Left" Margin="31,57,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TxtIdTrans" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="30,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" IsReadOnly="True" IsEnabled="False"/>
+                    <Label x:Name="labelNameTrans" Content="Item" HorizontalAlignment="Left" Margin="31,57,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxItem" HorizontalAlignment="Left" Margin="31,80,0,0" VerticalAlignment="Top" Width="350" ItemsSource="{Binding Item}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="comboBoxItem_SelectionChanged" IsEnabled="False"></ComboBox>
+                    <Label x:Name="labelQuantity" Content="Quantity" HorizontalAlignment="Left" Margin="403,53,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TxtQuantity" HorizontalAlignment="Left" Height="23" Margin="403,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" PreviewTextInput="TxtQuantity_PreviewTextInput" IsEnabled="False"/>
+                    <Button x:Name="btnAddToCart" Content="Add to Cart" HorizontalAlignment="Left" Margin="499,78,0,0" VerticalAlignment="Top" Click="btnAddToCart_Click" Background="#FF21B21A" Height="24" IsEnabled="False"/>
+                    <Button x:Name="btnDeleteTrans" Content="Delete" HorizontalAlignment="Left" Margin="616,78,0,0" VerticalAlignment="Top" Click="btnDeleteTrans_Click" Background="#FFF53333" IsEnabled="False" Height="24"/>
+                    <DataGrid x:Name="GridTransItem" HorizontalAlignment="Left" Margin="30,113,0,0" VerticalAlignment="Top" Height="174" Width="657" AutoGenerateColumns="False" CanUserResizeColumns="True" SelectionChanged="GridTransItem_SelectionChanged" Background="#FFC2F0C4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name Item" Binding="{Binding NameItem}" Width="410"/>
+                            <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="60"/>
+                            <DataGridTextColumn Header="Total" Binding="{Binding SubTotal}" Width="150"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label x:Name="labelTotal" Content="Grand Total" Margin="448,309,161,91"/>
+                    <TextBox x:Name="TxtTotal" HorizontalAlignment="Left" Margin="535,287,0,102" Width="152" TextAlignment="Right" IsReadOnly="True" IsEnabled="False" />
+                    <Label x:Name="labelPay" Content="Pay" Margin="448,354,161,49"/>
+                    <TextBox x:Name="TxtPay" HorizontalAlignment="Left" Margin="535,327,0,59" Width="152" TextAlignment="Right" IsEnabled="False" PreviewTextInput="TxtPay_PreviewTextInput" KeyDown="TxtPay_KeyDown"/>
+                    <Label x:Name="labelChange" Content="Change" Margin="448,399,161,0"/>
+                    <TextBox x:Name="TxtChange" HorizontalAlignment="Left" Margin="535,381,0,15" Width="152" TextAlignment="Right" IsReadOnly="True" IsEnabled="False" />
+                    <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="31,338,0,0" VerticalAlignment="Top" Click="btnCancel_Click" Background="#FFE28E16" Height="24" IsEnabled="False"/>
+                    <Button x:Name="btnSubmitTrans" Content="Submit" HorizontalAlignment="Left" Margin="130,337,0,0" VerticalAlignment="Top" Click="btnSubmitTrans_Click" Height="24" Background="#FF33F545" IsEnabled="False"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="List" HorizontalAlignment="Left" Width="110" Height="24" VerticalAlignment="Top" Margin="-2,-2,0,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FF15B60D" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Margin="0,0,-1,0">
+                    <TextBox x:Name="TxtIdTranss" HorizontalAlignment="Left" Margin="643,371,0,27" Width="44" TextAlignment="Right" IsReadOnly="True" IsEnabled="False" />
+                    <Button x:Name="btnDeleteTranss" Content="Delete" HorizontalAlignment="Left" Margin="619,371,0,0" VerticalAlignment="Top" Click="btnDeleteTranss_Click" Background="#FFF53333"/>
+                    <!--<Button x:Name="btnExport" Content="Export to PDF" HorizontalAlignment="Left" Margin="30,366,0,0" VerticalAlignment="Top" Width="92" Click="btnDeleteTranss_Click" Background="#FF22E83D"/>-->
+                    <DataGrid x:Name="GridTrans" HorizontalAlignment="Left" Margin="30,26,0,0" VerticalAlignment="Top" Height="320" Width="662" AutoGenerateColumns="False" CanUserResizeColumns="True" SelectionChanged="GridTrans_SelectionChanged" Background="#FFC2F0C4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="70"/>
+                            <DataGridTextColumn Header="Order Date" Binding="{Binding OrderDate}" Width="180"/>
+                            <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="170"/>
+                            <DataGridTextColumn Header="Payment" Binding="{Binding Pay}" Width="170"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Change Password" Visibility="Visible" HorizontalAlignment="Left" Width="110" Margin="-2,-2,-35,-2">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FF15B60D" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Margin="0,0,-1,0">
+                    <Label x:Name="labelOld" Content="Old Password" HorizontalAlignment="Left" Margin="131,92,0,0" VerticalAlignment="Top"/>
+                    <PasswordBox x:Name="TxtOldPW" HorizontalAlignment="Left" Height="24" Margin="252,94,0,0" VerticalAlignment="Top" Width="205"/>
+                    <Label x:Name="labelNew" Content="New Password" HorizontalAlignment="Left" Margin="131,120,0,0" VerticalAlignment="Top"/>
+                    <PasswordBox x:Name="TxtNewPW" HorizontalAlignment="Left" Height="23" Margin="252,123,0,0" VerticalAlignment="Top" Width="205"/>
+                    <Label x:Name="labelConfirm" Content="Confirm Password" HorizontalAlignment="Left" Margin="131,151,0,0" VerticalAlignment="Top"/>
+                    <PasswordBox x:Name="TxtConfirmPW" HorizontalAlignment="Left" Height="23" Margin="252,154,0,0" VerticalAlignment="Top" Width="205"/>
+                    <Button x:Name="btnChange" Content="Change Password" HorizontalAlignment="Left" Margin="252,199,0,0" VerticalAlignment="Top" Click="btnChange_Click" IsEnabled="True" Background="#FFE28E16"/>
+                    <Button x:Name="btnLogout" Content="Logout" HorizontalAlignment="Left" Margin="620,23,0,0" VerticalAlignment="Top" Click="btnLogout_Click" IsEnabled="True" Background="#FFF53333"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
